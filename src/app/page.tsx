@@ -2,7 +2,7 @@ import About from "@/components/About";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
-import Projects from "@/components/Projects";
+// import Projects from "@/components/Projects";
 import TopSection from "@/components/TopSection";
 
 export default function Home() {

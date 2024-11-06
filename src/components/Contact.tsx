@@ -14,7 +14,6 @@ const Contact = () => {
       message: e.target.message.value,
     };
 
-    console.log(data);
     const JSONdata = JSON.stringify(data);
     const endpoint = "/api/send";
 
@@ -46,32 +45,45 @@ const Contact = () => {
       className="grid md:grid-cols-2 my-12 md:my-12 py-24 gap-4 relative"
     >
       <div className="bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-primary-900 to-transparent rounded-full h-80 w-80 z-0 blur-lg absolute top-3/4 -left-4 transform -translate-x-1/2 -translate-1/2"></div>
-      <div className="z-10">
+      <div className="z-0">
         <h5 className="text-xl font-bold text-white my-2">
           Let&apos;s Connect
         </h5>
-        <p className="text-[#ADB7BE] mb-4 max-w-md mt-5">
-          I&apos;m currently looking for new opportunities, my inbox is always
-          open. Whether you have a question or just want to say hi, I&apos;ll
-          try my best to get back to you!
-        </p>
-        <div className="socials flex flex-row gap-5 mt-10">
-          <Link href="https://github.com/aliz1369">
+        <div className="flex md:flex-row flex-col">
+          <div className="md:my-auto mx-auto">
             <Image
-              src="/images/github.png"
-              width={80}
-              height={80}
-              alt="Github Icon"
+              src="/images/img.png"
+              width={120}
+              height={120}
+              alt="Alireza Zarifzargarian"
+              className="object-cover rounded-md"
             />
-          </Link>
-          <Link href="https://www.linkedin.com/in/alireza-zarifzargarian-talasaz/">
-            <Image
-              src="/images/linkedin.png"
-              width={80}
-              height={80}
-              alt="Linkedin Icon"
-            />
-          </Link>
+          </div>
+          <div className="ml-8">
+            <p className="text-[#ADB7BE] mb-4 max-w-md mt-5">
+              I&apos;m currently looking for new opportunities, my inbox is
+              always open. Whether you have a question or just want to say hi,
+              I&apos;ll try my best to get back to you!
+            </p>
+            <div className="socials flex flex-row gap-5 mt-10">
+              <Link href="https://github.com/aliz1369">
+                <Image
+                  src="/images/github.png"
+                  width={80}
+                  height={80}
+                  alt="Github Icon"
+                />
+              </Link>
+              <Link href="https://www.linkedin.com/in/alireza-zarifzargarian-talasaz/">
+                <Image
+                  src="/images/linkedin.png"
+                  width={80}
+                  height={80}
+                  alt="Linkedin Icon"
+                />
+              </Link>
+            </div>
+          </div>
         </div>
       </div>
       <div>

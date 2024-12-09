@@ -96,10 +96,9 @@ const Tetris: React.FC = () => {
       if (diffY > 5) {
         playerRotate(stage);
       }
-      if (diffY < -5) {
-        // if (repeat) return;
-        setDroptime(30);
-      }
+      // if (diffY < -5) {
+      //   setDroptime(5);
+      // }
     }
     setTouchPosition(null);
   };

@@ -21,6 +21,8 @@ const Tetris: React.FC = () => {
   const { score, setScore, rows, setRows, level, setLevel } =
     useGameStatus(rowsCleared);
 
+  const [touchPosition, setTouchPosition] = useState<null | number>(null);
+  const [touchPositionY, setTouchPositionY] = useState<null | number>(null);
   const movePlayer = (dir: number) => {
     if (!isColliding(player, stage, { x: dir, y: 0 })) {
       updatePlayerPos({ x: dir, y: 0, collided: false });
@@ -67,6 +69,41 @@ const Tetris: React.FC = () => {
     }
   };
 
+  const handleTouchStart = (e: React.TouchEvent<HTMLDivElement>) => {
+    const touchX = e.touches[0].clientX;
+    const touchY = e.touches[0].clientY;
+    setTouchPosition(touchX);
+    setTouchPositionY(touchY);
+  };
+
+  const touch = (e: React.TouchEvent<HTMLDivElement>) => {
+    const touchDown = touchPosition;
+    const touchY = touchPositionY;
+    if (touchDown === null || touchY === null) {
+      return;
+    }
+    const currentTouchY = e.touches[0].clientY;
+    const currentTouch = e.touches[0].clientX;
+    const diffY = touchY - currentTouchY;
+    const diff = touchDown - currentTouch;
+    if (!gameover) {
+      if (diff > 5) {
+        movePlayer(-1);
+      }
+      if (diff < -5) {
+        movePlayer(1);
+      }
+      if (diffY > 5) {
+        playerRotate(stage);
+      }
+      if (diffY < -5) {
+        // if (repeat) return;
+        setDroptime(30);
+      }
+    }
+    setTouchPosition(null);
+  };
+
   const drop = (): void => {
     if (rows > level * 10) {
       setLevel((prev) => prev + 1);
@@ -95,6 +132,8 @@ const Tetris: React.FC = () => {
       tabIndex={0}
       onKeyDown={move}
       onKeyUp={keyUp}
+      onTouchStart={handleTouchStart}
+      onTouchMove={touch}
       ref={gameArea}
     >
       <StyledTetris>

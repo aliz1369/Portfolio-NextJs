@@ -1,5 +1,5 @@
+import { TETROMINOS } from "@/app/games/tetris/setup";
 import styled from "styled-components";
-import { TETROMINOS } from "../../setup";
 
 type Props = {
   type: keyof typeof TETROMINOS;

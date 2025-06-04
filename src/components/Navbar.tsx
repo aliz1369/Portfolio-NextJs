@@ -1,22 +1,22 @@
 "use client";
-import Link from "next/link";
-import React, { useState } from "react";
-import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/solid";
-import NavLink from "@/components/NavLink";
 import MenuOverlay from "@/components/MenuOverlay";
+import NavLink from "@/components/NavLink";
+import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/solid";
+import Link from "next/link";
+import { useState } from "react";
 
 const navLinks = [
   {
     title: "About",
-    path: "#about",
+    path: "/#about",
   },
   {
-    title:"Games",
-    path:"/games"
+    title: "Games",
+    path: "/games",
   },
   {
     title: "Projects",
-    path: "#projects",
+    path: "/#projects",
   },
   {
     title: "Contact",
